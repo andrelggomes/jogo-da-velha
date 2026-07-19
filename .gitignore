@@ -1,3 +1,19 @@
+# Ambiente virtual
 .venv/
+
+# Cache do Python
 __pycache__/
+*.py[cod]
+
+# Pytest
 .pytest_cache/
+
+# Cobertura de testes
+.coverage
+htmlcov/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
