@@ -1,28 +1,25 @@
-# Este projeto implementa um jogo da velha.
-# Inicialmente queremos criar uma representação do tabuleiro.
-# Explique uma possível arquitetura para este projeto.
+# Este arquivo é o ponto de entrada do programa.
+# Sua responsabilidade é apenas iniciar a aplicação.
 
-def criar_tabuleiro():
+try:
+    # Quando o módulo é importado como parte de um pacote, usamos a importação
+    # relativa para manter a organização do projeto.
+    from .jogo import criar_tabuleiro, mostrar_tabuleiro
+except ImportError:
+    # Quando o arquivo é executado diretamente como um script, a importação
+    # relativa não funciona. Neste caso, usamos a importação simples.
+    from jogo import criar_tabuleiro, mostrar_tabuleiro
+
+
+def main():
     """
-    Cria um tabuleiro vazio para o jogo da velha.
+    Inicia a execução do programa.
 
-    Retorna uma matriz 3x3 preenchida com espaços vazios.
+    Cria um tabuleiro vazio e o mostra no terminal.
     """
-    return [[" " for _ in range(3)] for _ in range(3)]
+    tabuleiro = criar_tabuleiro()
+    mostrar_tabuleiro(tabuleiro)
 
 
-def mostrar_tabuleiro(tabuleiro):
-    """
-    Exibe o tabuleiro de forma legível no terminal.
-
-    Mantém a estrutura interna como lista de listas, mas melhora a
-    apresentação para o usuário.
-    """
-    for linha in tabuleiro:
-        print(" | ".join(linha))
-        if linha is not tabuleiro[-1]:
-            print("---------")
-
-
-tabuleiro = criar_tabuleiro()
-mostrar_tabuleiro(tabuleiro)
+if __name__ == "__main__":
+    main()
