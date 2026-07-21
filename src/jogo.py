@@ -11,6 +11,16 @@ def criar_tabuleiro():
     return [[" " for _ in range(3)] for _ in range(3)]
 
 
+def fazer_jogada(tabuleiro, linha, coluna, jogador):
+    """
+    Faz uma jogada no tabuleiro em uma posição informada.
+
+    A função altera apenas a célula escolhida e retorna o tabuleiro atualizado.
+    """
+    tabuleiro[linha][coluna] = jogador
+    return tabuleiro
+
+
 def mostrar_tabuleiro(tabuleiro):
     """
     Exibe o tabuleiro de forma legível no terminal.
